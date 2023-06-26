@@ -27,14 +27,11 @@ namespace PdfReaderAPI.Controllers
             }
             Dictionary<string, string> mappings = new Dictionary<string, string>()
                 {
-                    { "Dönen Varlıklar", "" },
-                    { "Kanunen Kabul Edilmeyen Giderler", "" },
-                    { "Dönem Net Karı veya Zararı", "" },
-                    { "Brüt Satışlar", "" },
-                    { "Kısa Vadeli Yabancı Kaynaklar", "" },
+                    { "İrtibat Tel No", "" },
+                    { "PASİF TOPLAMI", "" },
                 };
 
-
+            //Dictionary<string, List<string>> mappings = new Dictionary<string, List<string>>();
 
 
             using var memoryStream = new MemoryStream();
@@ -47,7 +44,7 @@ namespace PdfReaderAPI.Controllers
                 {
                     string pageText = PdfTextExtractor.GetTextFromPage(reader, i);
 
-
+                //ExtractKeysAndValues(pageText, mappings);
                 foreach (var mapping in mappings)
                 {
                     if (pageText.Contains(mapping.Key))
